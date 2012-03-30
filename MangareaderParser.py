@@ -1,18 +1,9 @@
-from BeautifulSoup import BeautifulSoup
-import re
+import Parser
 
-#doc = ['<html><head><title>Page title</title></head>',
-#       '<body><p id="firstpara" align="center">This is paragraph <b>one</b>.',
-#       '<p id="secondpara" align="blah">This is paragraph <b>two</b>.',
-#       '</html>']
-#soup = BeautifulSoup(''.join(doc))
-
-#print(soup.prettify())
-
-class Parser:
+class MangareaderParser(Parser):
     def __init__(self, baseUrl):
-        soup = BeautifulSoup()
-        self.baseUrl = baseUrl
+        Parser.__init__(self, baseUrl)
+        print("Mangareader Parser initialized")
 
     def getMangaList(relativeUrl):
         """ Returns a dictionnary containing the values as key: manga name, value: manga url """
@@ -25,3 +16,5 @@ class Parser:
     def getChapterImagesUrls(relativeUrl):
         """ Returns a dictionnary containing the values as key: image name, value: image url """
         return {}
+
+parser = MangareaderParser("http://mangareader.net")
