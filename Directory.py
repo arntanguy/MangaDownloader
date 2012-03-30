@@ -48,12 +48,15 @@ class Directory:
     missing=[]
     i = 1
     for chapter in os.listdir(mangaDirectory):
-        if chapter != i:
+        if chapter != i or len(os.listdir(chapter)) == 0:
             missing = range(i, chapter) + missing
             i = chapter
         i+=1
     return missing
-
+	
+	
+  
+  
   def mangaDownloaded(mangaDirectory):
     """search if the manga directory exist"""
     for manga in os.listdir(downloadDirectory):
@@ -61,3 +64,5 @@ class Directory:
             return True
     print("The Manga does not exist in the directory!")
     return False
+    
+  
