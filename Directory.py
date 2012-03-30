@@ -9,7 +9,7 @@ class Directory:
     """Returns the chain given, in order to have a normal name"""
     return str(name).capitalize().replace("/", "").replace("_", " ")
 
-  def initialise(self,manga):
+  def initialize(self,manga):
     self.manga = manga
     self.mangaPretty = makePretty(manga)
     self.numberImage=0
