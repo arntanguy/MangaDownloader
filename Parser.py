@@ -1,4 +1,5 @@
 from BeautifulSoup import BeautifulSoup
+from Network import Network
 import re
 
 #doc = ['<html><head><title>Page title</title></head>',
@@ -11,17 +12,18 @@ import re
 
 class Parser:
     def __init__(self, baseUrl):
-        soup = BeautifulSoup()
+        self.network = Network()
         self.baseUrl = baseUrl
 
-    def getMangaList(relativeUrl):
+    def getMangaList(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: manga name, value: manga url """
+        self.soup.findAll('p', limit=1)
         return {'Test', 'http://test.com'}
 
-    def getChapterList(relativeUrl):
+    def getChapterList(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: chapter title, value: chapter url """
         return {}
 
-    def getChapterImagesUrls(relativeUrl):
+    def getChapterImagesUrls(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: image name, value: image url """
         return {}
