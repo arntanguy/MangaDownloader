@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from Parser import Parser
 from Network import Network
 from BeautifulSoup import BeautifulSoup
@@ -9,13 +12,17 @@ class MangareaderParser(Parser):
 
     def getMangaList(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: manga name, value: manga url """
-        html = self.network.getUrlContentUtf8("http://www.mangareader.net/alphabetical")
-        #self.baseUrl+relativeUrl)
+        html = self.network.getUrlContentUtf8(self.baseUrl+relativeUrl)
 
         self.soup = BeautifulSoup(html)
-        self.soup.findAll('ul')
-        print (self.soup.prettify())
-        return {'Test', 'http://test.com'}
+
+        # Get all <ul> where there is chapters
+
+        links = {}
+        link = self.soup.findAll(lambda tag: tag.name == 'a' and tag.findParent('ul', 'series_alpha'))
+        for i in link:
+            links[str(i.contents[0]).encode("utf-8")] = str(i['href']).encode("utf-8")
+        return links
 
     def getChapterList(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: chapter title, value: chapter url """
@@ -25,6 +32,6 @@ class MangareaderParser(Parser):
         """ Returns a dictionnary containing the values as key: image name, value: image url """
         return {}
 
-parser = MangareaderParser("www.mangareader.net/")
-parser.getMangaList("alphabetical")
+parser = MangareaderParser("http://www.mangareader.net/")
+print(len(parser.getMangaList("alphabetical")))
 
