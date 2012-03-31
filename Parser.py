@@ -1,6 +1,5 @@
 from BeautifulSoup import BeautifulSoup
 from Network import Network
-import re
 
 #doc = ['<html><head><title>Page title</title></head>',
 #       '<body><p id="firstpara" align="center">This is paragraph <b>one</b>.',
