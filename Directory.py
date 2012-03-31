@@ -64,5 +64,3 @@ class Directory:
             return True
     print("The Manga does not exist in the directory!")
     return False
-    
-  
