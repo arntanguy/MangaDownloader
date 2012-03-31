@@ -23,6 +23,6 @@ class Parser:
         """ Returns a dictionnary containing the values as key: chapter title, value: chapter url """
         return {}
 
-    def getChapterImagesUrls(self, relativeUrl):
+    def getImagesUrls(self, relativeUrl):
         """ Returns a dictionnary containing the values as key: image name, value: image url """
         return {}

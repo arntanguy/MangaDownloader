@@ -10,6 +10,7 @@ class Network:
     def getUrlContent(self, url):
         """ Returns an html code bytearray containing the content of the downloaded page.
         This is a synchrone method """
+        print("Downloading: "+url)
         url = urllib.request.urlopen(url)
         bytes = url.read()
         return bytes
