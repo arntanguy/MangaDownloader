@@ -9,7 +9,8 @@ class Directory:
     """Returns the chain given, in order to have a normal name"""
     return str(name).capitalize().replace("/", "").replace("_", " ")
 
-  def initialize(self,manga):
+  def __init__(self,manga):
+    self.downloadDirectory = "/media/DATA/Linux/personnel/Mangas"
     self.manga = manga
     self.mangaPretty = makePretty(manga)
     self.numberImage=0
@@ -22,7 +23,11 @@ class Directory:
     except OSError:
       printError("Unable to create the download directory")
       exit(1)
-
+ 
+  def makePretty(name):
+   """Returns the chain given, in order to have a normal name"""
+   return str(name).capitalize().replace("/", "").replace("_", " ")
+ 
   def chapterDirectoryName(self, number):
     """Returns the name of the directory of the chapter.
        It is useful in order to organize the mass of chapters.
@@ -33,15 +38,15 @@ class Directory:
 
 
     mangaDirectory = downloadDirectory + self.mangaPretty +"/" + self.chapterDirectoryNname(number)
-        if (os.path.isdir(mangaDirectory) == False):
-          os.mkdir(mangaDirectory)
-        os.chdir(mangaDirectory)
+    if (os.path.isdir(mangaDirectory) == False):
+      os.mkdir(mangaDirectory)
+    os.chdir(mangaDirectory)
 
 
 
   def lastChapter(mangaDirectory):
     """Return the last chapter directory of the manga"""
-    return max(float(os.listdir(mangaDirectory))
+    return max(float(os.listdir(mangaDirectory)))
 
   def chapterMissing(mangaDirectory):
     """ Returns a list of local missing chapters """
