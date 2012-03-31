@@ -67,8 +67,9 @@ parser = MangareaderParser("http://www.mangareader.net")
 #chapterList = parser.getChapterList("/250/7th-period-is-a-secret.html")
 #print(chapterList)
 #images = parser.getImagesPages(chapterList[0][1])
-imagePages = parser.getImagesPages("/250-17691-1/7th-period-is-a-secret/chapter-2.html")
-print(imagePages)
-images = parser.getImagesUrls(imagePages.values())
-print(images)
+#imagePages = parser.getImagesPages("/250-17691-1/7th-period-is-a-secret/chapter-2.html")
+#print(imagePages)
+#images = parser.getImagesUrls(imagePages.values())
+#print(images)
+
 
